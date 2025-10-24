@@ -1,0 +1,14 @@
+{
+    "name": "ArcherOfGod.Skills",
+    "rootNamespace": "ArcherOfGod.Skills",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

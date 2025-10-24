@@ -1,4 +1,5 @@
 using ArcherOfGod.Core;
+using ArcherOfGod.Skills;
 using UnityEngine;
 
 namespace ArcherOfGod.Character
@@ -20,7 +21,12 @@ namespace ArcherOfGod.Character
         [Header("Character Settings")]
         [SerializeField] protected Faction faction;
 
+        [Header("Skills")]
+        [SerializeField] private EquippedSkill[] equippedSkills = new EquippedSkill[5];
+
         public Faction Faction => faction;
+
+        public EquippedSkill[] EquippedSkills => equippedSkills;
 
         protected virtual void Awake()
         {
@@ -39,6 +45,13 @@ namespace ArcherOfGod.Character
 
             health.Died += OnDeath;
             health.HealthChanged += OnHealthChanged;
+        }
+
+
+        private void Update()
+        {
+            foreach (var skill in equippedSkills)
+                skill?.UpdateCooldown(Time.deltaTime);
         }
 
         private void OnDeath()
@@ -69,6 +82,24 @@ namespace ArcherOfGod.Character
         public bool IsAlive()
         {
             return health.CurrentHealth > 0;
+        }
+
+        public void UseSkill(int index)
+        {
+            var skill = equippedSkills[index];
+            if (skill == null || !skill.IsReady) return;
+
+            switch (skill.definition.skillType)
+            {
+                case SkillType.FireArrow:
+                    Debug.Log("Player used Fire Arrow skill.");
+                    break;
+                case SkillType.Shield:
+                    Debug.Log("Player used Shield skill.");
+                    break;
+            }
+
+            skill.Trigger();
         }
     }
 }

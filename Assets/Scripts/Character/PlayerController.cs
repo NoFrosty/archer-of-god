@@ -17,6 +17,10 @@ namespace ArcherOfGod.Character
             }
         }
 
+
+
+
+
         private void FixedUpdate()
         {
             float move = inputHandler.MoveInput;

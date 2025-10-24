@@ -712,6 +712,108 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344519100}
   m_CullTransparentMesh: 1
+--- !u!1 &366030406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 366030407}
+  - component: {fileID: 366030410}
+  - component: {fileID: 366030409}
+  - component: {fileID: 366030408}
+  - component: {fileID: 366030411}
+  m_Layer: 5
+  m_Name: Panel_Player_Skills
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &366030407
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366030406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2007105048}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -25, y: 25}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 1, y: 0}
+--- !u!114 &366030408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366030406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
+  m_HorizontalFit: 1
+  m_VerticalFit: 1
+--- !u!114 &366030409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366030406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 6
+  m_Spacing: 15
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!222 &366030410
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366030406}
+  m_CullTransparentMesh: 1
+--- !u!114 &366030411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366030406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0194c2957143e6f41bde74c0c91698aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ArcherOfGod.UI::ArcherOfGod.UI.UISkillBar
+  characterController: {fileID: 95000013018941686}
+  skillButtonParent: {fileID: 366030407}
+  skillButtonPrefab: {fileID: 7517763125470473184, guid: 10aa05c6e2d6c84479ad6b980a2588b2, type: 3}
 --- !u!1 &385468409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,10 +2305,10 @@ RectTransform:
   - {fileID: 385468410}
   m_Father: {fileID: 63492733}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 395, y: -125}
+  m_SizeDelta: {x: 250, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1519793330
 MonoBehaviour:
@@ -2353,10 +2455,10 @@ RectTransform:
   - {fileID: 595528662}
   m_Father: {fileID: 63492733}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 125, y: -125}
+  m_SizeDelta: {x: 250, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1540755698
 MonoBehaviour:
@@ -3042,6 +3144,7 @@ RectTransform:
   - {fileID: 337757597}
   - {fileID: 1881581196}
   - {fileID: 63492733}
+  - {fileID: 366030407}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3203,6 +3306,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &95000013018941686 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1309560613180910114, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
+  m_PrefabInstance: {fileID: 5347051893066142441}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a023762ed46297b42a994d98529a1d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ArcherOfGod.Player::ArcherOfGod.Player.PlayerController
 --- !u!114 &95000013018941690 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3315505601273983225, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
@@ -3214,63 +3328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75f2c618eee9c8458a11e9e744827aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ArcherOfGod.Core::ArcherOfGod.Core.Health
---- !u!1001 &4789329953228071609
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1484917887840546575, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
-      propertyPath: m_Name
-      value: P_Arrow
-      objectReference: {fileID: 0}
-    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.403
-      objectReference: {fileID: 0}
-    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.766
-      objectReference: {fileID: 0}
-    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.20000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
 --- !u!1001 &5347051893066142441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3279,6 +3336,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1309560613180910114, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
+      propertyPath: equippedSkills.Array.data[0].definition
+      value: 
+      objectReference: {fileID: 11400000, guid: 23b92962e94349241b24dd63825728ef, type: 2}
+    - target: {fileID: 1309560613180910114, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
+      propertyPath: equippedSkills.Array.data[1].definition
+      value: 
+      objectReference: {fileID: 11400000, guid: a4010401d6ef1fd4c9d67e85dd7f071d, type: 2}
+    - target: {fileID: 1309560613180910114, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
+      propertyPath: equippedSkills.Array.data[2].definition
+      value: 
+      objectReference: {fileID: 11400000, guid: f70bda3de8e85564ca11cc8f8f7c07f0, type: 2}
     - target: {fileID: 8585921501694224227, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
       propertyPath: m_Name
       value: P_Character_Player
@@ -3340,4 +3409,3 @@ SceneRoots:
   - {fileID: 2096151574}
   - {fileID: 5347051893066142441}
   - {fileID: 1379587280}
-  - {fileID: 4789329953228071609}
