@@ -1,10 +1,8 @@
 {
-    "name": "ArcherOfGod.Character",
-    "rootNamespace": "ArcherOfGod.Character",
+    "name": "ArcherOfGod.Projectiles",
+    "rootNamespace": "ArcherOfGod.Projectiles",
     "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:f827b1e742f31a34fbaa0ef3c39ced93",
-        "GUID:bd1dcdec387e38c40b72946dc83bff50"
+        "GUID:f827b1e742f31a34fbaa0ef3c39ced93"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

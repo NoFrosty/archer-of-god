@@ -465,6 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 337757597}
   - component: {fileID: 337757598}
+  - component: {fileID: 337757599}
   m_Layer: 5
   m_Name: Slider_Player_Health
   m_TagString: Untagged
@@ -545,6 +546,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &337757599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337757596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940fa5fcb469b2d4a8f32315d0230c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ArcherOfGod.UI::ArcherOfGod.UI.UIHealth
+  health: {fileID: 95000013018941690}
 --- !u!1 &344519100
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,6 +2156,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d48416316e7089f49a4348d305b9c229, type: 3}
+--- !u!114 &1517171511 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7340722466816676135, guid: d48416316e7089f49a4348d305b9c229, type: 3}
+  m_PrefabInstance: {fileID: 1379587280}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a75f2c618eee9c8458a11e9e744827aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ArcherOfGod.Core::ArcherOfGod.Core.Health
 --- !u!1 &1519793328
 GameObject:
   m_ObjectHideFlags: 0
@@ -2661,6 +2686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1881581196}
   - component: {fileID: 1881581197}
+  - component: {fileID: 1881581198}
   m_Layer: 5
   m_Name: Slider_Enemy_Health
   m_TagString: Untagged
@@ -2741,6 +2767,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1881581198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881581195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 940fa5fcb469b2d4a8f32315d0230c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ArcherOfGod.UI::ArcherOfGod.UI.UIHealth
+  health: {fileID: 1517171511}
 --- !u!1 &1935639502
 GameObject:
   m_ObjectHideFlags: 0
@@ -3164,6 +3203,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &95000013018941690 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3315505601273983225, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
+  m_PrefabInstance: {fileID: 5347051893066142441}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a75f2c618eee9c8458a11e9e744827aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ArcherOfGod.Core::ArcherOfGod.Core.Health
+--- !u!1001 &4789329953228071609
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1484917887840546575, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
+      propertyPath: m_Name
+      value: P_Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.403
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.766
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.20000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144922006691079042, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
 --- !u!1001 &5347051893066142441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3233,3 +3340,4 @@ SceneRoots:
   - {fileID: 2096151574}
   - {fileID: 5347051893066142441}
   - {fileID: 1379587280}
+  - {fileID: 4789329953228071609}

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ArcherOfGod.Core
+namespace ArcherOfGod.Character
 {
     [RequireComponent(typeof(Animator))]
     public class CharacterAnimatorController : MonoBehaviour

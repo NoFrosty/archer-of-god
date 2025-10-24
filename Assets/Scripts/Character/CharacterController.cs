@@ -6,14 +6,21 @@ namespace ArcherOfGod.Character
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(Health))]
     [RequireComponent(typeof(CharacterAnimatorController))]
-    public class CharacterController : MonoBehaviour
+    [RequireComponent(typeof(ArrowShooter))]
+    public class CharacterController : MonoBehaviour, IFactionProvider
     {
         protected Rigidbody2D rb;
         protected Health health;
         protected CharacterAnimatorController animatorController;
 
+
         [Header("Movement Settings")]
         [SerializeField] protected float moveSpeed = 5f;
+
+        [Header("Character Settings")]
+        [SerializeField] protected Faction faction;
+
+        public Faction Faction => faction;
 
         protected virtual void Awake()
         {
@@ -36,6 +43,7 @@ namespace ArcherOfGod.Character
 
         private void OnDeath()
         {
+            Debug.Log("Character died: " + gameObject.name);
             animatorController.PlayDeath();
         }
 
@@ -56,6 +64,11 @@ namespace ArcherOfGod.Character
         {
             health.Died -= OnDeath;
             health.HealthChanged -= OnHealthChanged;
+        }
+
+        public bool IsAlive()
+        {
+            return health.CurrentHealth > 0;
         }
     }
 }

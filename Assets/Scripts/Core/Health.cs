@@ -4,8 +4,11 @@ namespace ArcherOfGod.Core
 {
     public class Health : MonoBehaviour
     {
-        public int maxHP = 100;
-        public int currentHP;
+        [SerializeField] private int maxHP = 100;
+        [SerializeField] private int currentHP;
+
+        public int MaxHealth => maxHP;
+        public int CurrentHealth => currentHP;
 
         public delegate void OnHealthChanged(int current, int max);
         public event OnHealthChanged HealthChanged;
