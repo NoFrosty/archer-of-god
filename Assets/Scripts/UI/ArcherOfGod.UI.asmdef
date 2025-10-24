@@ -3,9 +3,7 @@
     "rootNamespace": "ArcherOfGod.UI",
     "references": [
         "GUID:f827b1e742f31a34fbaa0ef3c39ced93",
-        "GUID:6055be8ebefd69e48b49212b09b47b2f",
-        "GUID:d1737a77d6fd92041b40d34e19e6b07b",
-        "GUID:5ad13ad939b8d8f46b31fa051836b81a"
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

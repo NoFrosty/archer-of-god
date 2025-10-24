@@ -26,6 +26,7 @@ namespace ArcherOfGod.Core
         public Faction Faction => characterFaction.Faction;
         public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
         public EquippedSkill[] EquippedSkills => equippedSkills;
+        public Health Health => health;
 
         protected virtual void Awake()
         {
