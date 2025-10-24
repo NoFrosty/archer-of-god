@@ -1,8 +1,9 @@
 {
-    "name": "ArcherOfGod.Player",
-    "rootNamespace": "ArcherOfGod.Player",
+    "name": "ArcherOfGod.Character",
+    "rootNamespace": "ArcherOfGod.Character",
     "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:f827b1e742f31a34fbaa0ef3c39ced93"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
