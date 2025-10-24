@@ -1,4 +1,4 @@
-using ArcherOfGod.Skills;
+using ArcherOfGod.Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

@@ -39,6 +39,8 @@ namespace ArcherOfGod.Core
 
         public void TakeDamage(int dmg)
         {
+            if (dmg <= 0 || currentHP <= 0) return;
+
             currentHP -= dmg;
             currentHP = Mathf.Max(0, currentHP);
             Debug.Log($"{gameObject.name} took {dmg} dmg. HP={currentHP}/{maxHP}");
@@ -60,7 +62,7 @@ namespace ArcherOfGod.Core
         {
             Debug.Log($"{gameObject.name} died.");
             Died?.Invoke();
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
 
         public void AddEffect(IStatusEffect effect)

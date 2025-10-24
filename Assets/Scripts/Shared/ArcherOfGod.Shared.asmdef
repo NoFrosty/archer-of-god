@@ -1,11 +1,7 @@
 {
-    "name": "ArcherOfGod.Core",
-    "rootNamespace": "ArcherOfGod.Core",
-    "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:5ad13ad939b8d8f46b31fa051836b81a",
-        "GUID:a7e7bba2f1ae7dd42a5ae84b2469aca6"
-    ],
+    "name": "ArcherOfGod.Shared",
+    "rootNamespace": "ArcherOfGod.Shared",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

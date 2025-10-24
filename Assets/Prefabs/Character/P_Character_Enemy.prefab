@@ -806,6 +806,7 @@ GameObject:
   - component: {fileID: 7340722466816676135}
   - component: {fileID: 4612913803693617828}
   - component: {fileID: 1587432543861282290}
+  - component: {fileID: 4110599853640048515}
   m_Layer: 0
   m_Name: P_Character_Enemy
   m_TagString: Enemy
@@ -878,7 +879,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &7789110708806575726
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -928,8 +929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b754bc0049c92f64ea40a2d02ae67286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ArcherOfGod.Character::ArcherOfGod.Character.EnemyController
-  moveSpeed: 5
-  faction: 1
+  moveSpeed: 2
   equippedSkills:
   - definition: {fileID: 0}
     cooldownTimer: 0
@@ -985,3 +985,16 @@ MonoBehaviour:
   shootInterval: 1.5
   arrowSpeed: 10
   arcHeight: 1.5
+--- !u!114 &4110599853640048515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8585921501694224227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662262ec15310fa4eb65896ad042fa1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ArcherOfGod.Shared::ArcherOfGod.Shared.CharacterFaction
+  faction: 1

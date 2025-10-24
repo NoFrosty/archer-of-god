@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba258f05cc154854c9bd3f70bb9dfc82, type: 3}
+  m_Name: SO_Skills_IceArrow
+  m_EditorClassIdentifier: ArcherOfGod.Skills::ArcherOfGod.Skills.SkillDefinition
+  skillType: 1
+  effectType: 2
+  skillName: Ice Arrow
+  description: Slow the target
+  icon: {fileID: -1883572016, guid: aed99eadee49e5d4d857c4283e64a40a, type: 3}
+  cooldown: 7
+  arrowPrefab: {fileID: 4311945799201838109, guid: 20b5a6e3ceec661489b9b9707d28dcf8, type: 3}
+  effectPrefab: {fileID: 7144406511136808229, guid: 769b9e2d1c42fb14294ab70c6f7292c6, type: 3}

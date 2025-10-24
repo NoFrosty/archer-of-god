@@ -1,4 +1,4 @@
-using ArcherOfGod.Character;
+using ArcherOfGod.Core;
 using UnityEngine;
 
 namespace ArcherOfGod
@@ -7,8 +7,8 @@ namespace ArcherOfGod
     {
         public static GameManager Instance { get; private set; }
 
-        private PlayerController playerController;
-        private EnemyController enemyController;
+        [SerializeField] private PlayerController playerController;
+        [SerializeField] private EnemyController enemyController;
 
         public PlayerController PlayerController => playerController;
         public EnemyController EnemyController => enemyController;
