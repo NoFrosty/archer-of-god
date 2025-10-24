@@ -366,6 +366,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3713546091444015610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1068488140122230502}
+  m_Layer: 0
+  m_Name: FXPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1068488140122230502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3713546091444015610}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8601727295828587454}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3725811367180604040
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,6 +829,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7604320731113343522}
+  - {fileID: 1068488140122230502}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2260495086609001658
@@ -900,6 +932,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: ArcherOfGod.Player::ArcherOfGod.Player.PlayerController
   moveSpeed: 5
   faction: 0
+  equippedSkills:
+  - definition: {fileID: 11400000, guid: 23b92962e94349241b24dd63825728ef, type: 2}
+    cooldownTimer: 0
+  - definition: {fileID: 11400000, guid: a4010401d6ef1fd4c9d67e85dd7f071d, type: 2}
+    cooldownTimer: 0
+  - definition: {fileID: 11400000, guid: f70bda3de8e85564ca11cc8f8f7c07f0, type: 2}
+    cooldownTimer: 0
+  - definition: {fileID: 0}
+    cooldownTimer: 0
+  - definition: {fileID: 0}
+    cooldownTimer: 0
 --- !u!114 &3622278122253406008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1044,6 +1087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: ArcherOfGod.Core::ArcherOfGod.Core.Health
   maxHP: 100
   currentHP: 100
+  fxSpawnPoint: {fileID: 1068488140122230502}
 --- !u!114 &5654198130454636181
 MonoBehaviour:
   m_ObjectHideFlags: 0

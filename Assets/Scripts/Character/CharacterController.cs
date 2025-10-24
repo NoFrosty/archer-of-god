@@ -13,6 +13,7 @@ namespace ArcherOfGod.Character
         protected Rigidbody2D rb;
         protected Health health;
         protected CharacterAnimatorController animatorController;
+        protected ArrowShooter arrowShooter;
 
 
         [Header("Movement Settings")]
@@ -41,6 +42,10 @@ namespace ArcherOfGod.Character
             if (!TryGetComponent<Health>(out health))
             {
                 Debug.LogError("CharacterController requires a Health component.");
+            }
+            if (!TryGetComponent<ArrowShooter>(out arrowShooter))
+            {
+                Debug.LogError("CharacterController requires an ArrowShooter component.");
             }
 
             health.Died += OnDeath;
@@ -91,8 +96,8 @@ namespace ArcherOfGod.Character
 
             switch (skill.definition.skillType)
             {
-                case SkillType.FireArrow:
-                    Debug.Log("Player used Fire Arrow skill.");
+                case SkillType.SpecialArrow:
+                    arrowShooter.ShootSpecialArrow(skill.definition);
                     break;
                 case SkillType.Shield:
                     Debug.Log("Player used Shield skill.");

@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba258f05cc154854c9bd3f70bb9dfc82, type: 3}
   m_Name: SO_Skills_FireArrow
   m_EditorClassIdentifier: ArcherOfGod.Skills::ArcherOfGod.Skills.SkillDefinition
-  skillType: 0
+  skillType: 1
+  effectType: 1
   skillName: Fire Arrow
   description: Burn the target
   icon: {fileID: 21300174, guid: 15b2d2faaecad4bfb9edc6585d94f509, type: 3}
   cooldown: 5
+  arrowPrefab: {fileID: 4311945799201838109, guid: 6c30b075989ab6449b4a1cc32c1481cd, type: 3}
+  effectPrefab: {fileID: 2323200718799341714, guid: c378474b75b664e449e2c145c415b397, type: 3}

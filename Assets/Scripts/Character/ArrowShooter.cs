@@ -1,5 +1,5 @@
 using ArcherOfGod.Core;
-using ArcherOfGod.Projectiles;
+using ArcherOfGod.Skills;
 using System.Linq;
 using UnityEngine;
 
@@ -28,12 +28,12 @@ namespace ArcherOfGod.Character
             shootTimer += Time.deltaTime;
             if (shootTimer >= shootInterval)
             {
-                Shoot();
+                Shoot(ArrowEffectType.None);
                 shootTimer = 0f;
             }
         }
 
-        private void Shoot()
+        public void Shoot(ArrowEffectType effectType)
         {
             if (arrowPrefab == null || shootPoint == null || characterController == null) return;
 
@@ -55,7 +55,41 @@ namespace ArcherOfGod.Character
             var arrow = arrowObj.GetComponent<Arrow>();
             if (arrow != null)
             {
-                arrow.Init(cachedTarget.transform.position, characterController.Faction);
+
+                arrow.Init(cachedTarget.transform.position,
+                    characterController.Faction, null
+                    );
+            }
+
+            characterController.Attack();
+        }
+
+        public void ShootSpecialArrow(SkillDefinition skillDefinition)
+        {
+            if (shootPoint == null || characterController == null) return;
+
+            if (cachedTarget == null || !cachedTarget.IsAlive())
+            {
+                Faction targetFaction = characterController.Faction == Faction.Player ? Faction.Enemy : Faction.Player;
+                var targets = FindObjectsByType<CharacterController>(FindObjectsSortMode.None)
+                    .Where(c => c.Faction == targetFaction && c.IsAlive())
+                    .ToArray();
+
+                if (targets.Length == 0) return;
+
+                cachedTarget = targets
+                    .OrderBy(t => Vector2.Distance(shootPoint.position, t.transform.position))
+                    .First();
+            }
+
+            GameObject arrowObj = Instantiate(skillDefinition.arrowPrefab, shootPoint.position, Quaternion.identity);
+            var arrow = arrowObj.GetComponent<Arrow>();
+            if (arrow != null)
+            {
+
+                arrow.Init(cachedTarget.transform.position,
+                    characterController.Faction,
+                    skillDefinition);
             }
 
             characterController.Attack();

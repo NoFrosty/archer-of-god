@@ -172,3 +172,5 @@ MonoBehaviour:
   damage: 10
   lifetime: 3
   arcHeight: 3
+  burnDuration: 3
+  burnDamagePerSecond: 5

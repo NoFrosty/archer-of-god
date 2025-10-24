@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ArcherOfGod.Core
@@ -6,9 +7,12 @@ namespace ArcherOfGod.Core
     {
         [SerializeField] private int maxHP = 100;
         [SerializeField] private int currentHP;
+        [SerializeField] private Transform fxSpawnPoint;
 
         public int MaxHealth => maxHP;
         public int CurrentHealth => currentHP;
+
+        public Transform FxSpawnPoint => fxSpawnPoint;
 
         public delegate void OnHealthChanged(int current, int max);
         public event OnHealthChanged HealthChanged;
@@ -16,9 +20,21 @@ namespace ArcherOfGod.Core
         public delegate void OnDeath();
         public event OnDeath Died;
 
+        private List<IStatusEffect> activeEffects = new List<IStatusEffect>();
+
         private void Awake()
         {
             currentHP = maxHP;
+        }
+
+        private void Update()
+        {
+            for (int i = activeEffects.Count - 1; i >= 0; i--)
+            {
+                activeEffects[i].UpdateEffect(Time.deltaTime);
+                if (activeEffects[i].IsFinished)
+                    activeEffects.RemoveAt(i);
+            }
         }
 
         public void TakeDamage(int dmg)
@@ -45,6 +61,12 @@ namespace ArcherOfGod.Core
             Debug.Log($"{gameObject.name} died.");
             Died?.Invoke();
             gameObject.SetActive(false);
+        }
+
+        public void AddEffect(IStatusEffect effect)
+        {
+            effect.Apply(this);
+            activeEffects.Add(effect);
         }
     }
 }

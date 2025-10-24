@@ -1,19 +1,24 @@
 using ArcherOfGod.Core;
 using UnityEngine;
 
-namespace ArcherOfGod.Projectiles
+namespace ArcherOfGod.Skills
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class Arrow : MonoBehaviour
     {
-        public int damage = 10;
-        public float lifetime = 3f;
+        [SerializeField] private int damage = 10;
+        [SerializeField] private float lifetime = 3f;
         private Rigidbody2D rb;
 
         private Faction ownerType;
 
         [Header("Trajectory Settings")]
-        public float arcHeight = 1.5f;
+        [SerializeField] private float arcHeight = 1.5f;
+
+        [Header("Arrow Effect")]
+        private SkillDefinition skillDefinition;
+        [SerializeField] private float burnDuration = 3f;
+        [SerializeField] private float burnDamagePerSecond = 5f;
 
         private void Awake()
         {
@@ -21,8 +26,9 @@ namespace ArcherOfGod.Projectiles
             Destroy(gameObject, lifetime);
         }
 
-        public void Init(Vector3 target, Faction owner)
+        public void Init(Vector3 target, Faction owner, SkillDefinition skillDefinition)
         {
+            this.skillDefinition = skillDefinition;
             ownerType = owner;
 
             Vector2 start = transform.position;
@@ -74,6 +80,13 @@ namespace ArcherOfGod.Projectiles
             if (health != null)
             {
                 health.TakeDamage(damage);
+
+                if (skillDefinition != null && skillDefinition.effectType == ArrowEffectType.Fire)
+                {
+                    var burn = new BurnEffect(burnDuration, burnDamagePerSecond, skillDefinition?.effectPrefab);
+                    health.AddEffect(burn);
+                }
+
                 Destroy(gameObject);
             }
         }

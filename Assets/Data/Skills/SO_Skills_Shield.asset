@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba258f05cc154854c9bd3f70bb9dfc82, type: 3}
   m_Name: SO_Skills_Shield
   m_EditorClassIdentifier: ArcherOfGod.Skills::ArcherOfGod.Skills.SkillDefinition
-  skillType: 1
+  skillType: 2
+  effectType: 0
   skillName: Shield
   description: Create a shield around the player
   icon: {fileID: 21300228, guid: 15b2d2faaecad4bfb9edc6585d94f509, type: 3}
   cooldown: 10
+  skillEffectPrefab: {fileID: 1484917887840546575, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}

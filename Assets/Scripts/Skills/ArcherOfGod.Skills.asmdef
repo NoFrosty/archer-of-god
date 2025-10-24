@@ -1,7 +1,9 @@
 {
     "name": "ArcherOfGod.Skills",
     "rootNamespace": "ArcherOfGod.Skills",
-    "references": [],
+    "references": [
+        "GUID:f827b1e742f31a34fbaa0ef3c39ced93"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

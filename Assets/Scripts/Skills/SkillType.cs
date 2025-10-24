@@ -2,7 +2,8 @@ namespace ArcherOfGod.Skills
 {
     public enum SkillType
     {
-        FireArrow,
+        None,
+        SpecialArrow,
         Shield,
         TripleShot,
         LightningStorm,
