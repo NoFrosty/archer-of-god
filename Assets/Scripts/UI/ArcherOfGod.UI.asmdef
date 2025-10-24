@@ -1,0 +1,17 @@
+{
+    "name": "ArcherOfGod.UI",
+    "rootNamespace": "ArcherOfGod.UI",
+    "references": [
+        "GUID:f827b1e742f31a34fbaa0ef3c39ced93",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
