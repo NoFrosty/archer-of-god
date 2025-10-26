@@ -1,4 +1,5 @@
 using ArcherOfGod.Shared;
+using System.Collections;
 using UnityEngine;
 
 namespace ArcherOfGod.Core
@@ -53,6 +54,8 @@ namespace ArcherOfGod.Core
 
         public void Init(Vector3 target, Faction owner, SkillDefinition skillDefinition, ObjectPool objectPool)
         {
+            enabled = true;
+            rb.simulated = true;
             this.skillDefinition = skillDefinition;
             ownerType = owner;
             pool = objectPool;
@@ -88,6 +91,12 @@ namespace ArcherOfGod.Core
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (other.CompareTag("Ground"))
+            {
+                StartCoroutine(DelayedReturnToPool(2f));
+                return;
+            }
+
             var characterFaction = other.GetComponent<CharacterFaction>();
             if (characterFaction != null && characterFaction.IsAlly(ownerType))
                 return;
@@ -99,8 +108,21 @@ namespace ArcherOfGod.Core
                 health.TakeDamage(finalDamage);
 
                 ApplyStatusEffect(health, other.transform);
-                ReturnToPool();
+                transform.SetParent(other.transform);
+                StartCoroutine(DelayedReturnToPool(2f));
             }
+        }
+
+        public IEnumerator DelayedReturnToPool(float delay)
+        {
+            Debug.Log("Arrow will return to pool");
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+            rb.simulated = false;
+
+            enabled = false;
+            yield return new WaitForSeconds(delay);
+            ReturnToPool();
         }
 
         private void ApplyStatusEffect(Health health, Transform target)
@@ -125,11 +147,6 @@ namespace ArcherOfGod.Core
                     health.AddEffect(pushBack);
                     break;
             }
-        }
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            ReturnToPool();
         }
 
         private void ReturnToPool()
