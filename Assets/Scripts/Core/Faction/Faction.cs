@@ -1,4 +1,4 @@
-namespace ArcherOfGod.Shared
+namespace ArcherOfGod.Core
 {
     public enum Faction
     {

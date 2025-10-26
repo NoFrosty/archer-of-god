@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ArcherOfGod.Shared
+namespace ArcherOfGod.Core
 {
     public class CharacterFaction : MonoBehaviour
     {
