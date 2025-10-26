@@ -26,7 +26,7 @@ namespace ArcherOfGod.Core
         {
             this.target = target;
             targetRb = target.GetComponent<Rigidbody2D>();
-            movementScript = target.GetComponent<IMovementController>(); // or PlayerMovement, etc.
+            movementScript = target.GetComponent<IMovementController>();
 
             if (movementScript is MonoBehaviour mb)
                 mb.enabled = false;

@@ -142,7 +142,8 @@ namespace ArcherOfGod.Core
                     break;
                 case ArrowEffectType.PushBack:
                     Vector2 direction = (target.position - transform.position).normalized;
-                    Vector2 force = new Vector2(direction.x * pushBackForce.x, pushBackForce.y);
+                    float horizontalSign = Mathf.Sign(direction.x);
+                    Vector2 force = new Vector2(horizontalSign * pushBackForce.x, pushBackForce.y);
                     var pushBack = new PushBackEffect(0.3f, force);
                     health.AddEffect(pushBack);
                     break;
