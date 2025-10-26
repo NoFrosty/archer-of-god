@@ -16,8 +16,10 @@ MonoBehaviour:
   effectType: 2
   skillName: Ice Arrow
   description: Slow the target
-  icon: {fileID: -1883572016, guid: aed99eadee49e5d4d857c4283e64a40a, type: 3}
+  icon: {fileID: 21300000, guid: 89566c6123f898546a2293c58c012a82, type: 3}
   cooldown: 5
   damage: 10
   arrowPrefab: {fileID: 4311945799201838109, guid: 20b5a6e3ceec661489b9b9707d28dcf8, type: 3}
   effectPrefab: {fileID: 7144406511136808229, guid: 769b9e2d1c42fb14294ab70c6f7292c6, type: 3}
+  shieldDuration: 3
+  directShootSpeed: 15

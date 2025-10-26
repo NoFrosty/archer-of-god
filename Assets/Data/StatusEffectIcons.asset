@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a72d24ed0f8329a4bbbda975b04839f1, type: 3}
+  m_Name: StatusEffectIcons
+  m_EditorClassIdentifier: ArcherOfGod.Core::ArcherOfGod.Core.StatusEffectIconsConfig
+  burnIcon: {fileID: 21300000, guid: 6e1a9ec99a3fe8b408bcdb769d799826, type: 3}
+  coldIcon: {fileID: 21300000, guid: 89566c6123f898546a2293c58c012a82, type: 3}
+  shieldIcon: {fileID: 21300000, guid: 97075cb244518144faecfbed73904d35, type: 3}
+  pushBackIcon: {fileID: 21300000, guid: 005fa85ec15cc3a4489cb7bc37d71eb7, type: 3}

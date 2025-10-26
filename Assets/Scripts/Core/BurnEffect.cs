@@ -16,6 +16,7 @@ namespace ArcherOfGod.Core
         private GameObject effectInstance;
 
         public bool IsFinished { get; private set; }
+        public StatusEffectType EffectType => StatusEffectType.Burn;
 
         /// <summary>
         /// Creates a new burn effect.

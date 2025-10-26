@@ -16,7 +16,7 @@ MonoBehaviour:
   effectType: 0
   skillName: Direct Shot
   description: Shot a salve of 3 arrow
-  icon: {fileID: 21300130, guid: 15b2d2faaecad4bfb9edc6585d94f509, type: 3}
+  icon: {fileID: 21300000, guid: 7dd4460e808ea6345a4ace9e5e3faf8c, type: 3}
   cooldown: 3
   damage: 10
   arrowPrefab: {fileID: 1484917887840546575, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}

@@ -18,6 +18,7 @@ namespace ArcherOfGod.Core
         private bool speedReduced;
 
         public bool IsFinished { get; private set; }
+        public StatusEffectType EffectType => StatusEffectType.Cold;
 
         /// <summary>
         /// Creates a new cold effect.

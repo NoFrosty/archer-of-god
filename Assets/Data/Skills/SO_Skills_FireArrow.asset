@@ -16,8 +16,10 @@ MonoBehaviour:
   effectType: 1
   skillName: Fire Arrow
   description: Burn the target
-  icon: {fileID: 21300174, guid: 15b2d2faaecad4bfb9edc6585d94f509, type: 3}
+  icon: {fileID: 21300000, guid: 6e1a9ec99a3fe8b408bcdb769d799826, type: 3}
   cooldown: 7
   damage: 10
   arrowPrefab: {fileID: 4311945799201838109, guid: 6c30b075989ab6449b4a1cc32c1481cd, type: 3}
   effectPrefab: {fileID: 2323200718799341714, guid: c378474b75b664e449e2c145c415b397, type: 3}
+  shieldDuration: 3
+  directShootSpeed: 15

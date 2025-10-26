@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace ArcherOfGod.Core
 {
+    /// <summary>
+    /// Status effect that applies a knockback force to the target.
+    /// </summary>
     public class PushBackEffect : IStatusEffect
     {
         private Health target;
@@ -13,7 +16,13 @@ namespace ArcherOfGod.Core
         private float timer;
 
         public bool IsFinished { get; private set; }
+        public StatusEffectType EffectType => StatusEffectType.PushBack;
 
+        /// <summary>
+        /// Creates a new push back effect.
+        /// </summary>
+        /// <param name="duration">How long the effect lasts in seconds.</param>
+        /// <param name="force">The force vector to apply.</param>
         public PushBackEffect(float duration, Vector2 force)
         {
             this.duration = duration;
@@ -57,3 +66,4 @@ namespace ArcherOfGod.Core
         }
     }
 }
+

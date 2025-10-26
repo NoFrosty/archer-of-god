@@ -21,5 +21,10 @@ namespace ArcherOfGod.Core
         /// Returns true when the effect has expired.
         /// </summary>
         bool IsFinished { get; }
+
+        /// <summary>
+        /// Gets the type of this status effect.
+        /// </summary>
+        StatusEffectType EffectType { get; }
     }
 }

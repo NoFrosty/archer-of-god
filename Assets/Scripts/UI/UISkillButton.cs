@@ -10,6 +10,7 @@ namespace ArcherOfGod.UI
         [Header("UI References")]
         [SerializeField] private Image iconImage;
         [SerializeField] private TextMeshProUGUI cooldownText;
+        [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private Button button;
 
         private EquippedSkill skill;
@@ -53,6 +54,11 @@ namespace ArcherOfGod.UI
             {
                 iconImage.sprite = skill.definition.icon;
                 iconImage.enabled = true;
+            }
+
+            if (nameText != null)
+            {
+                nameText.text = skill?.definition != null ? skill.definition.skillName : "N/A";
             }
 
             if (skill.IsReady)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,6 +37,9 @@ namespace ArcherOfGod.Core
         public delegate void OnDeath();
         public event OnDeath Died;
 
+        /// <summary>Invoked when a status effect is added or removed.</summary>
+        public event Action<List<StatusEffectType>> StatusEffectsChanged;
+
         private List<IStatusEffect> activeEffects = new List<IStatusEffect>();
 
         private void Awake()
@@ -45,11 +49,20 @@ namespace ArcherOfGod.Core
 
         private void Update()
         {
+            bool effectsChanged = false;
             for (int i = activeEffects.Count - 1; i >= 0; i--)
             {
                 activeEffects[i].UpdateEffect(Time.deltaTime);
                 if (activeEffects[i].IsFinished)
+                {
                     activeEffects.RemoveAt(i);
+                    effectsChanged = true;
+                }
+            }
+
+            if (effectsChanged)
+            {
+                NotifyStatusEffectsChanged();
             }
         }
 
@@ -95,6 +108,7 @@ namespace ArcherOfGod.Core
         {
             effect.Apply(this);
             activeEffects.Add(effect);
+            NotifyStatusEffectsChanged();
         }
 
         /// <summary>
@@ -105,6 +119,38 @@ namespace ArcherOfGod.Core
         {
             IsInvulnerable = invulnerable;
             Debug.Log($"{gameObject.name} invulnerability: {IsInvulnerable}");
+            NotifyStatusEffectsChanged();
+        }
+
+        /// <summary>
+        /// Gets a list of currently active status effect types.
+        /// </summary>
+        public List<StatusEffectType> GetActiveEffectTypes()
+        {
+            var effectTypes = new List<StatusEffectType>();
+
+            foreach (var effect in activeEffects)
+            {
+                if (!effectTypes.Contains(effect.EffectType))
+                {
+                    effectTypes.Add(effect.EffectType);
+                }
+            }
+
+            if (IsInvulnerable)
+            {
+                if (!effectTypes.Contains(StatusEffectType.Shield))
+                {
+                    effectTypes.Add(StatusEffectType.Shield);
+                }
+            }
+
+            return effectTypes;
+        }
+
+        private void NotifyStatusEffectsChanged()
+        {
+            StatusEffectsChanged?.Invoke(GetActiveEffectTypes());
         }
     }
 }
