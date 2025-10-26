@@ -12,6 +12,7 @@ namespace ArcherOfGod.Core
         public int MaxHealth => maxHP;
         public int CurrentHealth => currentHP;
         public bool IsAlive => currentHP > 0;
+        public bool IsInvulnerable { get; private set; }
 
         public Transform FxSpawnPoint => fxSpawnPoint;
 
@@ -40,7 +41,7 @@ namespace ArcherOfGod.Core
 
         public void TakeDamage(int dmg)
         {
-            if (dmg <= 0 || !IsAlive) return;
+            if (dmg <= 0 || !IsAlive || IsInvulnerable) return;
 
             currentHP = Mathf.Max(0, currentHP - dmg);
             Debug.Log($"{gameObject.name} took {dmg} dmg. HP={currentHP}/{maxHP}");
@@ -68,6 +69,12 @@ namespace ArcherOfGod.Core
         {
             effect.Apply(this);
             activeEffects.Add(effect);
+        }
+
+        public void SetInvulnerable(bool invulnerable)
+        {
+            IsInvulnerable = invulnerable;
+            Debug.Log($"{gameObject.name} invulnerability: {IsInvulnerable}");
         }
     }
 }

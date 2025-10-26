@@ -24,15 +24,20 @@ namespace ArcherOfGod.Core
 
         private ObjectPool pool;
         private float lifetimeTimer;
+        private bool isDirectShot;
+        private float originalGravityScale;
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
+            originalGravityScale = rb.gravityScale;
         }
 
         private void OnEnable()
         {
             lifetimeTimer = 0f;
+            isDirectShot = false;
+            rb.gravityScale = originalGravityScale;
         }
 
         private void Update()
@@ -59,6 +64,8 @@ namespace ArcherOfGod.Core
             this.skillDefinition = skillDefinition;
             ownerType = owner;
             pool = objectPool;
+            isDirectShot = false;
+            rb.gravityScale = originalGravityScale;
 
             Vector2 start = transform.position;
             Vector2 end = target;
@@ -89,6 +96,22 @@ namespace ArcherOfGod.Core
             rb.linearVelocity = velocity;
         }
 
+        public void InitDirect(Vector3 target, Faction owner, SkillDefinition skillDefinition, ObjectPool objectPool)
+        {
+            enabled = true;
+            rb.simulated = true;
+            this.skillDefinition = skillDefinition;
+            ownerType = owner;
+            pool = objectPool;
+            isDirectShot = true;
+
+            rb.gravityScale = 0f;
+
+            Vector2 direction = Vector2.right * Mathf.Sign(target.x - transform.position.x);
+            float speed = skillDefinition != null ? skillDefinition.directShootSpeed : 15f;
+            rb.linearVelocity = direction * speed;
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Ground"))
@@ -115,7 +138,6 @@ namespace ArcherOfGod.Core
 
         public IEnumerator DelayedReturnToPool(float delay)
         {
-            Debug.Log("Arrow will return to pool");
             rb.linearVelocity = Vector2.zero;
             rb.angularVelocity = 0f;
             rb.simulated = false;
@@ -152,6 +174,9 @@ namespace ArcherOfGod.Core
 
         private void ReturnToPool()
         {
+            rb.gravityScale = originalGravityScale;
+            transform.SetParent(null);
+
             if (pool != null)
             {
                 pool.Return(gameObject);

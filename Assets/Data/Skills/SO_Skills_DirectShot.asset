@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba258f05cc154854c9bd3f70bb9dfc82, type: 3}
-  m_Name: SO_Skills_Shield
+  m_Name: SO_Skills_DirectShot
   m_EditorClassIdentifier: ArcherOfGod.Skills::ArcherOfGod.Skills.SkillDefinition
-  skillType: 2
+  skillType: 7
   effectType: 0
-  skillName: Shield
-  description: Create a shield around the player
-  icon: {fileID: 21300228, guid: 15b2d2faaecad4bfb9edc6585d94f509, type: 3}
-  cooldown: 15
+  skillName: Direct Shot
+  description: Shot a salve of 3 arrow
+  icon: {fileID: 21300130, guid: 15b2d2faaecad4bfb9edc6585d94f509, type: 3}
+  cooldown: 3
   damage: 10
-  arrowPrefab: {fileID: 0}
-  effectPrefab: {fileID: 2323200718799341714, guid: 5e5860d8e9e1556458217f7c4809869c, type: 3}
-  shieldDuration: 5
+  arrowPrefab: {fileID: 1484917887840546575, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
+  effectPrefab: {fileID: 0}
+  shieldDuration: 3
   directShootSpeed: 15

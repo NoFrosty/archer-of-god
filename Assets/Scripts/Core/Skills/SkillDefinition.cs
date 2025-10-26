@@ -14,5 +14,13 @@ namespace ArcherOfGod.Core
         public int damage = 10;
         public GameObject arrowPrefab;
         public GameObject effectPrefab;
+
+        [Header("Shield Settings")]
+        [Tooltip("Duration of shield in seconds")]
+        public float shieldDuration = 3f;
+
+        [Header("Direct Shoot Settings")]
+        [Tooltip("Speed of direct shot arrows")]
+        public float directShootSpeed = 15f;
     }
 }

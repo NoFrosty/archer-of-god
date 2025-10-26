@@ -8,5 +8,7 @@ namespace ArcherOfGod.Core
         TripleShot,
         LightningStorm,
         PushBackArrow,
+        MultiArrow,
+        DirectShoot,
     }
 }

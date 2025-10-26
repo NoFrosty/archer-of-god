@@ -2863,6 +2863,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3604261202928190803, guid: d48416316e7089f49a4348d305b9c229, type: 3}
+      propertyPath: equippedSkills.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604261202928190803, guid: d48416316e7089f49a4348d305b9c229, type: 3}
+      propertyPath: equippedSkills.Array.data[0].definition
+      value: 
+      objectReference: {fileID: 11400000, guid: d9d8d2e8ede55b74fa0500b3eb7281c4, type: 2}
+    - target: {fileID: 3604261202928190803, guid: d48416316e7089f49a4348d305b9c229, type: 3}
+      propertyPath: equippedSkills.Array.data[1].definition
+      value: 
+      objectReference: {fileID: 11400000, guid: 23b92962e94349241b24dd63825728ef, type: 2}
+    - target: {fileID: 3604261202928190803, guid: d48416316e7089f49a4348d305b9c229, type: 3}
+      propertyPath: equippedSkills.Array.data[2].definition
+      value: 
+      objectReference: {fileID: 11400000, guid: bc74a997cd7d5f34cb2cd37ba858e75d, type: 2}
+    - target: {fileID: 3604261202928190803, guid: d48416316e7089f49a4348d305b9c229, type: 3}
+      propertyPath: equippedSkills.Array.data[3].definition
+      value: 
+      objectReference: {fileID: 11400000, guid: d1d90d5893c72744e9ab578fc195a004, type: 2}
+    - target: {fileID: 3604261202928190803, guid: d48416316e7089f49a4348d305b9c229, type: 3}
+      propertyPath: equippedSkills.Array.data[4].definition
+      value: 
+      objectReference: {fileID: 11400000, guid: 61550c4d75ee8e34e9e2121096c60d26, type: 2}
+    - target: {fileID: 3604261202928190803, guid: d48416316e7089f49a4348d305b9c229, type: 3}
+      propertyPath: equippedSkills.Array.data[5].definition
+      value: 
+      objectReference: {fileID: 11400000, guid: f70bda3de8e85564ca11cc8f8f7c07f0, type: 2}
+    - target: {fileID: 3604261202928190803, guid: d48416316e7089f49a4348d305b9c229, type: 3}
+      propertyPath: equippedSkills.Array.data[6].definition
+      value: 
+      objectReference: {fileID: 11400000, guid: a4010401d6ef1fd4c9d67e85dd7f071d, type: 2}
     - target: {fileID: 8585921501694224227, guid: d48416316e7089f49a4348d305b9c229, type: 3}
       propertyPath: m_Name
       value: P_Character_Enemy
@@ -4890,6 +4922,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1309560613180910114, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
+      propertyPath: equippedSkills.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309560613180910114, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
+      propertyPath: equippedSkills.Array.data[0].definition
+      value: 
+      objectReference: {fileID: 11400000, guid: d9d8d2e8ede55b74fa0500b3eb7281c4, type: 2}
+    - target: {fileID: 1309560613180910114, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
+      propertyPath: equippedSkills.Array.data[1].definition
+      value: 
+      objectReference: {fileID: 11400000, guid: 23b92962e94349241b24dd63825728ef, type: 2}
+    - target: {fileID: 1309560613180910114, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
+      propertyPath: equippedSkills.Array.data[2].definition
+      value: 
+      objectReference: {fileID: 11400000, guid: bc74a997cd7d5f34cb2cd37ba858e75d, type: 2}
+    - target: {fileID: 1309560613180910114, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
+      propertyPath: equippedSkills.Array.data[3].definition
+      value: 
+      objectReference: {fileID: 11400000, guid: d1d90d5893c72744e9ab578fc195a004, type: 2}
+    - target: {fileID: 1309560613180910114, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
+      propertyPath: equippedSkills.Array.data[4].definition
+      value: 
+      objectReference: {fileID: 11400000, guid: 61550c4d75ee8e34e9e2121096c60d26, type: 2}
+    - target: {fileID: 1309560613180910114, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
+      propertyPath: equippedSkills.Array.data[5].definition
+      value: 
+      objectReference: {fileID: 11400000, guid: f70bda3de8e85564ca11cc8f8f7c07f0, type: 2}
+    - target: {fileID: 1309560613180910114, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
+      propertyPath: equippedSkills.Array.data[6].definition
+      value: 
+      objectReference: {fileID: 11400000, guid: a4010401d6ef1fd4c9d67e85dd7f071d, type: 2}
     - target: {fileID: 8585921501694224227, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
       propertyPath: m_Name
       value: P_Character_Player

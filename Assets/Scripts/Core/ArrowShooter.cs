@@ -53,7 +53,7 @@ namespace ArcherOfGod.Core
             var arrow = arrowObj.GetComponent<Arrow>();
             if (arrow != null)
             {
-                arrow.Init(target.GetCenterPosition(), characterController.Faction, null, arrowPool);
+                arrow.Init(target.transform.position, characterController.Faction, null, arrowPool);
             }
 
             characterController.Attack();
@@ -72,7 +72,7 @@ namespace ArcherOfGod.Core
             var arrow = arrowObj.GetComponent<Arrow>();
             if (arrow != null)
             {
-                arrow.Init(target.GetCenterPosition(), characterController.Faction, skillDefinition, null);
+                arrow.Init(target.transform.position, characterController.Faction, skillDefinition, null);
             }
 
             characterController.Attack();
@@ -98,12 +98,59 @@ namespace ArcherOfGod.Core
                 var arrow = arrowObj.GetComponent<Arrow>();
                 if (arrow != null)
                 {
-                    arrow.Init(target.GetCenterPosition(), characterController.Faction, skillDefinition, null);
+                    arrow.Init(target.transform.position, characterController.Faction, skillDefinition, null);
                 }
 
                 characterController.Attack();
                 yield return new WaitForSeconds(0.15f);
             }
+        }
+
+        public void ShootMultiArrow(SkillDefinition skillDefinition, int arrowCount)
+        {
+            if (shootPoint == null || characterController == null || skillDefinition?.arrowPrefab == null)
+                return;
+
+            var target = GetTarget();
+            if (target == null)
+                return;
+
+            Vector3 targetCenter = target.transform.position;
+            float spreadDistance = 0.5f;
+
+            for (int i = 0; i < arrowCount; i++)
+            {
+                float offsetX = (i - arrowCount / 2f) * spreadDistance;
+                Vector3 targetPos = targetCenter + new Vector3(offsetX, 0, 0);
+
+                GameObject arrowObj = Instantiate(skillDefinition.arrowPrefab, shootPoint.position, Quaternion.identity);
+                var arrow = arrowObj.GetComponent<Arrow>();
+                if (arrow != null)
+                {
+                    arrow.Init(targetPos, characterController.Faction, skillDefinition, null);
+                }
+            }
+
+            characterController.Attack();
+        }
+
+        public void ShootDirectArrow(SkillDefinition skillDefinition)
+        {
+            if (shootPoint == null || characterController == null || skillDefinition?.arrowPrefab == null)
+                return;
+
+            var target = GetTarget();
+            if (target == null)
+                return;
+
+            GameObject arrowObj = Instantiate(skillDefinition.arrowPrefab, shootPoint.position, Quaternion.identity);
+            var arrow = arrowObj.GetComponent<Arrow>();
+            if (arrow != null)
+            {
+                arrow.InitDirect(target.transform.position, characterController.Faction, skillDefinition, null);
+            }
+
+            characterController.Attack();
         }
 
         private CharacterController GetTarget()

@@ -15,6 +15,8 @@ namespace ArcherOfGod.Core.Skills.Commands
                 SkillType.Shield => new ShieldSkillCommand(definition),
                 SkillType.TripleShot => new TripleShotSkillCommand(definition),
                 SkillType.PushBackArrow => new PushBackArrowSkillCommand(definition),
+                SkillType.MultiArrow => new MultiArrowSkillCommand(definition),
+                SkillType.DirectShoot => new DirectShootSkillCommand(definition),
                 _ => null
             };
         }

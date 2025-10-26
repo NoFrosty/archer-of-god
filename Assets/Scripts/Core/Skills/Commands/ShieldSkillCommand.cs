@@ -13,7 +13,16 @@ namespace ArcherOfGod.Core.Skills.Commands
 
         public void Execute(CharacterController character)
         {
-            Debug.Log($"{character.name} used Shield skill.");
+            var shieldController = character.GetComponent<ShieldController>();
+            if (shieldController == null)
+            {
+                shieldController = character.gameObject.AddComponent<ShieldController>();
+            }
+
+            if (shieldController != null && skillDefinition != null)
+            {
+                shieldController.ActivateShield(skillDefinition);
+            }
         }
     }
 }
