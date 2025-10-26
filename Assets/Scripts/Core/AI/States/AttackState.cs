@@ -9,7 +9,7 @@ namespace ArcherOfGod.Core.AI.States
         public void Enter(EnemyAIController controller)
         {
             controller.SetMovementEnabled(false);
-            
+
             float waitDuration = controller.AIConfig.attackStateDuration;
             waitAction = new WaitAction(waitDuration);
         }

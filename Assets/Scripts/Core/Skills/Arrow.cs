@@ -24,7 +24,6 @@ namespace ArcherOfGod.Core
 
         private ObjectPool pool;
         private float lifetimeTimer;
-        private bool isDirectShot;
         private float originalGravityScale;
 
         private void Awake()
@@ -36,7 +35,6 @@ namespace ArcherOfGod.Core
         private void OnEnable()
         {
             lifetimeTimer = 0f;
-            isDirectShot = false;
             rb.gravityScale = originalGravityScale;
         }
 
@@ -64,7 +62,6 @@ namespace ArcherOfGod.Core
             this.skillDefinition = skillDefinition;
             ownerType = owner;
             pool = objectPool;
-            isDirectShot = false;
             rb.gravityScale = originalGravityScale;
 
             Vector2 start = transform.position;
@@ -103,7 +100,6 @@ namespace ArcherOfGod.Core
             this.skillDefinition = skillDefinition;
             ownerType = owner;
             pool = objectPool;
-            isDirectShot = true;
 
             rb.gravityScale = 0f;
 

@@ -37,7 +37,7 @@ namespace ArcherOfGod.UI
                 var skill = characterController.EquippedSkills[i];
                 var btnObj = Instantiate(skillButtonPrefab, skillButtonParent);
                 var uiSkillBtn = btnObj.GetComponent<UISkillButton>();
-                
+
                 if (uiSkillBtn != null)
                 {
                     skillButtons[i] = uiSkillBtn;

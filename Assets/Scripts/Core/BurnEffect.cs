@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace ArcherOfGod.Core
 {
+    /// <summary>
+    /// Status effect that deals damage over time and displays a visual effect.
+    /// </summary>
     public class BurnEffect : IStatusEffect
     {
         private Health target;
@@ -14,6 +17,12 @@ namespace ArcherOfGod.Core
 
         public bool IsFinished { get; private set; }
 
+        /// <summary>
+        /// Creates a new burn effect.
+        /// </summary>
+        /// <param name="duration">How long the burn lasts in seconds.</param>
+        /// <param name="damagePerSecond">Damage applied each second.</param>
+        /// <param name="effectPrefab">Optional visual effect prefab.</param>
         public BurnEffect(float duration, float damagePerSecond, GameObject effectPrefab = null)
         {
             this.duration = duration;
@@ -29,7 +38,6 @@ namespace ArcherOfGod.Core
             this.target = target;
             if (effectPrefab != null && target != null)
             {
-                // Instantiate and parent to target
                 effectInstance = Object.Instantiate(effectPrefab, target.FxSpawnPoint);
                 effectInstance.transform.localScale = Vector3.one * 2;
                 effectInstance.transform.localPosition = Vector3.zero;

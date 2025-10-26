@@ -10,8 +10,6 @@ namespace ArcherOfGod.Core
         [Header("Shooting Settings")]
         [SerializeField] private Transform shootPoint;
         [SerializeField] private float shootInterval = 1.5f;
-        [SerializeField] private float arrowSpeed = 10f;
-        [SerializeField] private float arcHeight = 1.5f;
 
         private float shootTimer;
         private CharacterController characterController;

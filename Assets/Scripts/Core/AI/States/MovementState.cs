@@ -11,10 +11,10 @@ namespace ArcherOfGod.Core.AI.States
         public void Enter(EnemyAIController controller)
         {
             movementController = controller.GetComponent<IMovementController>();
-            
+
             float moveDuration = controller.AIConfig.moveDuration;
             moveAction = new MoveAction(moveDuration);
-            
+
             controller.SetMovementEnabled(true);
         }
 

@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace ArcherOfGod.Core
 {
+    /// <summary>
+    /// Status effect that slows movement speed and displays a visual effect.
+    /// </summary>
     public class ColdEffect : IStatusEffect
     {
         private Health target;
@@ -16,6 +19,11 @@ namespace ArcherOfGod.Core
 
         public bool IsFinished { get; private set; }
 
+        /// <summary>
+        /// Creates a new cold effect.
+        /// </summary>
+        /// <param name="duration">How long the slow lasts in seconds.</param>
+        /// <param name="effectPrefab">Optional visual effect prefab.</param>
         public ColdEffect(float duration, GameObject effectPrefab = null)
         {
             this.duration = duration;

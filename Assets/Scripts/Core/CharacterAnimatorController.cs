@@ -34,7 +34,6 @@ namespace ArcherOfGod.Core
             animator.SetTrigger("Hit");
         }
 
-
         public void ResetAnimator()
         {
             animator.SetBool("IsMoving", false);
