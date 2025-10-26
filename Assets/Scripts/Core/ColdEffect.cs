@@ -1,3 +1,4 @@
+using ArcherOfGod.Core.Movement;
 using UnityEngine;
 
 namespace ArcherOfGod.Core
@@ -5,7 +6,7 @@ namespace ArcherOfGod.Core
     public class ColdEffect : IStatusEffect
     {
         private Health target;
-        private CharacterController characterController;
+        private IMovementController movementController;
         private float duration;
         private float timer;
         private GameObject effectPrefab;
@@ -27,11 +28,11 @@ namespace ArcherOfGod.Core
         public void Apply(Health target)
         {
             this.target = target;
-            characterController = target.GetComponent<CharacterController>();
-            if (characterController != null)
+            movementController = target.GetComponent<IMovementController>();
+            if (movementController != null)
             {
-                originalMoveSpeed = characterController.MoveSpeed;
-                characterController.MoveSpeed = originalMoveSpeed * 0.5f;
+                originalMoveSpeed = movementController.GetMoveSpeed();
+                movementController.SetMoveSpeed(originalMoveSpeed * 0.5f);
                 speedReduced = true;
             }
 
@@ -59,12 +60,12 @@ namespace ArcherOfGod.Core
         private void Finish()
         {
             IsFinished = true;
-            
-            if (speedReduced && characterController != null)
+
+            if (speedReduced && movementController != null)
             {
-                characterController.MoveSpeed = originalMoveSpeed;
+                movementController.SetMoveSpeed(originalMoveSpeed);
             }
-            
+
             if (effectInstance != null)
             {
                 Object.Destroy(effectInstance);

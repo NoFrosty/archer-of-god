@@ -33,5 +33,15 @@ namespace ArcherOfGod.Core
         {
             animator.SetTrigger("Hit");
         }
+
+
+        public void ResetAnimator()
+        {
+            animator.SetBool("IsMoving", false);
+            animator.SetFloat("Speed", 0f);
+            animator.ResetTrigger("Attack");
+            animator.ResetTrigger("Death");
+            animator.ResetTrigger("Hit");
+        }
     }
 }

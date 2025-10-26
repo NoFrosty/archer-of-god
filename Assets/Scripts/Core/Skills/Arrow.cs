@@ -19,17 +19,43 @@ namespace ArcherOfGod.Core
         private SkillDefinition skillDefinition;
         [SerializeField] private float burnDuration = 3f;
         [SerializeField] private float burnDamagePerSecond = 5f;
+        [SerializeField] private Vector2 pushBackForce = new Vector2(5f, 2f);
+
+        private ObjectPool pool;
+        private float lifetimeTimer;
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
-            Destroy(gameObject, lifetime);
         }
 
-        public void Init(Vector3 target, Faction owner, SkillDefinition skillDefinition)
+        private void OnEnable()
+        {
+            lifetimeTimer = 0f;
+        }
+
+        private void Update()
+        {
+            lifetimeTimer += Time.deltaTime;
+            if (lifetimeTimer >= lifetime)
+            {
+                ReturnToPool();
+                return;
+            }
+
+            Vector2 v = rb.linearVelocity;
+            if (v.sqrMagnitude > 0.01f)
+            {
+                float angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+            }
+        }
+
+        public void Init(Vector3 target, Faction owner, SkillDefinition skillDefinition, ObjectPool objectPool)
         {
             this.skillDefinition = skillDefinition;
             ownerType = owner;
+            pool = objectPool;
 
             Vector2 start = transform.position;
             Vector2 end = target;
@@ -60,16 +86,6 @@ namespace ArcherOfGod.Core
             rb.linearVelocity = velocity;
         }
 
-        private void Update()
-        {
-            Vector2 v = rb.linearVelocity;
-            if (v.sqrMagnitude > 0.01f)
-            {
-                float angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
-            }
-        }
-
         private void OnTriggerEnter2D(Collider2D other)
         {
             var characterFaction = other.GetComponent<CharacterFaction>();
@@ -82,12 +98,12 @@ namespace ArcherOfGod.Core
                 int finalDamage = skillDefinition != null ? skillDefinition.damage : damage;
                 health.TakeDamage(finalDamage);
 
-                ApplyStatusEffect(health);
-                Destroy(gameObject);
+                ApplyStatusEffect(health, other.transform);
+                ReturnToPool();
             }
         }
 
-        private void ApplyStatusEffect(Health health)
+        private void ApplyStatusEffect(Health health, Transform target)
         {
             if (skillDefinition == null || health == null)
                 return;
@@ -102,12 +118,30 @@ namespace ArcherOfGod.Core
                     var cold = new ColdEffect(burnDuration, skillDefinition.effectPrefab);
                     health.AddEffect(cold);
                     break;
+                case ArrowEffectType.PushBack:
+                    Vector2 direction = (target.position - transform.position).normalized;
+                    Vector2 force = new Vector2(direction.x * pushBackForce.x, pushBackForce.y);
+                    var pushBack = new PushBackEffect(0.3f, force);
+                    health.AddEffect(pushBack);
+                    break;
             }
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            Destroy(gameObject);
+            ReturnToPool();
+        }
+
+        private void ReturnToPool()
+        {
+            if (pool != null)
+            {
+                pool.Return(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

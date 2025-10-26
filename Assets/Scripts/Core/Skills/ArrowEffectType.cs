@@ -5,5 +5,6 @@ namespace ArcherOfGod.Core
         None,
         Fire,
         Ice,
+        PushBack,
     }
 }

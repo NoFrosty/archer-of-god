@@ -4714,10 +4714,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1309560613180910114, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
-      propertyPath: equippedSkills.Array.data[3].definition
-      value: 
-      objectReference: {fileID: 11400000, guid: bc74a997cd7d5f34cb2cd37ba858e75d, type: 2}
     - target: {fileID: 8585921501694224227, guid: 6428da17522dbb54c825ad5fa9357554, type: 3}
       propertyPath: m_Name
       value: P_Character_Player

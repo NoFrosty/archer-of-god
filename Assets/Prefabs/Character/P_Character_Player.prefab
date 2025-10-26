@@ -808,6 +808,9 @@ GameObject:
   - component: {fileID: 3315505601273983225}
   - component: {fileID: 5654198130454636181}
   - component: {fileID: 5726758611846726479}
+  - component: {fileID: 6849728270884609144}
+  - component: {fileID: 4110599853640048515}
+  - component: {fileID: 8519890844227554869}
   m_Layer: 0
   m_Name: P_Character_Player
   m_TagString: Player
@@ -930,8 +933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a023762ed46297b42a994d98529a1d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ArcherOfGod.Player::ArcherOfGod.Player.PlayerController
-  moveSpeed: 5
-  faction: 0
   equippedSkills:
   - definition: {fileID: 11400000, guid: 23b92962e94349241b24dd63825728ef, type: 2}
     cooldownTimer: 0
@@ -939,9 +940,9 @@ MonoBehaviour:
     cooldownTimer: 0
   - definition: {fileID: 11400000, guid: f70bda3de8e85564ca11cc8f8f7c07f0, type: 2}
     cooldownTimer: 0
-  - definition: {fileID: 0}
+  - definition: {fileID: 11400000, guid: bc74a997cd7d5f34cb2cd37ba858e75d, type: 2}
     cooldownTimer: 0
-  - definition: {fileID: 0}
+  - definition: {fileID: 11400000, guid: 61550c4d75ee8e34e9e2121096c60d26, type: 2}
     cooldownTimer: 0
 --- !u!114 &3622278122253406008
 MonoBehaviour:
@@ -1085,8 +1086,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75f2c618eee9c8458a11e9e744827aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ArcherOfGod.Core::ArcherOfGod.Core.Health
-  maxHP: 100
-  currentHP: 100
+  maxHP: 200
+  currentHP: 200
   fxSpawnPoint: {fileID: 1068488140122230502}
 --- !u!114 &5654198130454636181
 MonoBehaviour:
@@ -1112,8 +1113,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e112c8b0b3b9c894ab2c19a98a530bd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ArcherOfGod.Character::ArcherOfGod.Character.ArrowShooter
-  arrowPrefab: {fileID: 1484917887840546575, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
   shootPoint: {fileID: 3026549024940982181}
   shootInterval: 1.5
   arrowSpeed: 10
   arcHeight: 1.5
+--- !u!114 &6849728270884609144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8585921501694224227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ArcherOfGod.Core::ArcherOfGod.Core.Movement.PlayerMovement
+--- !u!114 &4110599853640048515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8585921501694224227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662262ec15310fa4eb65896ad042fa1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ArcherOfGod.Shared::ArcherOfGod.Shared.CharacterFaction
+  faction: 0
+--- !u!114 &8519890844227554869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8585921501694224227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ArcherOfGod.Core::ArcherOfGod.Core.ObjectPool
+  prefab: {fileID: 1484917887840546575, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
+  initialSize: 1

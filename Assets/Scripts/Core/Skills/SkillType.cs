@@ -7,5 +7,6 @@ namespace ArcherOfGod.Core
         Shield,
         TripleShot,
         LightningStorm,
+        PushBackArrow,
     }
 }

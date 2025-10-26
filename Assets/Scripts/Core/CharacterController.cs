@@ -1,3 +1,4 @@
+using ArcherOfGod.Core.Skills.Commands;
 using ArcherOfGod.Shared;
 using UnityEngine;
 
@@ -17,14 +18,10 @@ namespace ArcherOfGod.Core
         protected CharacterFaction characterFaction;
         protected Collider2D col;
 
-        [Header("Movement Settings")]
-        [SerializeField] protected float moveSpeed = 5f;
-
         [Header("Skills")]
         [SerializeField] private EquippedSkill[] equippedSkills = new EquippedSkill[5];
 
         public Faction Faction => characterFaction.Faction;
-        public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
         public EquippedSkill[] EquippedSkills => equippedSkills;
         public Health Health => health;
 
@@ -115,21 +112,12 @@ namespace ArcherOfGod.Core
             if (skill?.definition == null || !skill.IsReady || !IsAlive())
                 return;
 
-            switch (skill.definition.skillType)
-            {
-                case SkillType.SpecialArrow:
-                    if (arrowShooter != null)
-                        arrowShooter.ShootSpecialArrow(skill.definition);
-                    break;
-                case SkillType.Shield:
-                    Debug.Log("Player used Shield skill.");
-                    break;
-            }
-
+            var command = SkillCommandFactory.CreateCommand(skill.definition);
+            command?.Execute(this);
             skill.Trigger();
         }
 
-        public void Reset()
+        public virtual void Reset()
         {
             if (health != null)
                 health.Heal(health.MaxHealth);
@@ -142,6 +130,8 @@ namespace ArcherOfGod.Core
 
             foreach (var skill in equippedSkills)
                 skill?.Reset();
+
+            animatorController.ResetAnimator();
         }
     }
 }

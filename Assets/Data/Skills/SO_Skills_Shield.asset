@@ -17,5 +17,7 @@ MonoBehaviour:
   skillName: Shield
   description: Create a shield around the player
   icon: {fileID: 21300228, guid: 15b2d2faaecad4bfb9edc6585d94f509, type: 3}
-  cooldown: 10
-  skillEffectPrefab: {fileID: 1484917887840546575, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
+  cooldown: 15
+  damage: 10
+  arrowPrefab: {fileID: 0}
+  effectPrefab: {fileID: 0}

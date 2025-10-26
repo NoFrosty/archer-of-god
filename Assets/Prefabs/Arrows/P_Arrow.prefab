@@ -174,3 +174,4 @@ MonoBehaviour:
   arcHeight: 3
   burnDuration: 3
   burnDamagePerSecond: 5
+  pushBackForce: {x: 10, y: 0}
