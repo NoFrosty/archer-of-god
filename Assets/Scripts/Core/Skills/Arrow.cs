@@ -77,23 +77,31 @@ namespace ArcherOfGod.Core
                 return;
 
             var health = other.GetComponent<Health>();
-            if (health != null)
+            if (health != null && health.IsAlive)
             {
-                health.TakeDamage(damage);
+                int finalDamage = skillDefinition != null ? skillDefinition.damage : damage;
+                health.TakeDamage(finalDamage);
 
-                switch (skillDefinition?.effectType)
-                {
-                    case ArrowEffectType.Fire:
-                        var burn = new BurnEffect(burnDuration, burnDamagePerSecond, skillDefinition?.effectPrefab);
-                        health.AddEffect(burn);
-                        break;
-                    case ArrowEffectType.Ice:
-                        var cold = new ColdEffect(burnDuration, skillDefinition?.effectPrefab);
-                        health.AddEffect(cold);
-                        break;
-                }
-
+                ApplyStatusEffect(health);
                 Destroy(gameObject);
+            }
+        }
+
+        private void ApplyStatusEffect(Health health)
+        {
+            if (skillDefinition == null || health == null)
+                return;
+
+            switch (skillDefinition.effectType)
+            {
+                case ArrowEffectType.Fire:
+                    var burn = new BurnEffect(burnDuration, burnDamagePerSecond, skillDefinition.effectPrefab);
+                    health.AddEffect(burn);
+                    break;
+                case ArrowEffectType.Ice:
+                    var cold = new ColdEffect(burnDuration, skillDefinition.effectPrefab);
+                    health.AddEffect(cold);
+                    break;
             }
         }
 

@@ -66,50 +66,60 @@ namespace ArcherOfGod.Core
         {
             Debug.Log("Character died: " + gameObject.name);
 
-            // Disable everything
+            if (animatorController != null)
+            {
+                animatorController.SetMoving(0f);
+                animatorController.PlayDeath();
+            }
+
             enabled = false;
-            rb.simulated = false;
+            if (rb != null) rb.simulated = false;
             if (arrowShooter != null) arrowShooter.enabled = false;
-            if (animatorController != null) animatorController.enabled = false;
             if (col != null) col.enabled = false;
-            animatorController.SetMoving(0f);
-            animatorController.PlayDeath();
         }
 
         private void OnHealthChanged(int current, int max)
         {
-            if (current < max)
+            if (current > 0 && current < max && animatorController != null)
             {
-                if (current > 0)
-                    animatorController.PlayHit();
+                animatorController.PlayHit();
             }
         }
 
         public void Attack()
         {
-            animatorController.PlayAttack();
+            if (animatorController != null)
+                animatorController.PlayAttack();
         }
 
         private void OnDestroy()
         {
-            health.Died -= OnDeath;
-            health.HealthChanged -= OnHealthChanged;
+            if (health != null)
+            {
+                health.Died -= OnDeath;
+                health.HealthChanged -= OnHealthChanged;
+            }
         }
 
         public bool IsAlive()
         {
-            return health.CurrentHealth > 0;
+            return health != null && health.IsAlive;
         }
 
         public void UseSkill(int index)
         {
+            if (index < 0 || index >= equippedSkills.Length)
+                return;
+
             var skill = equippedSkills[index];
-            if (skill == null || !skill.IsReady) return;
+            if (skill?.definition == null || !skill.IsReady || !IsAlive())
+                return;
 
             switch (skill.definition.skillType)
             {
                 case SkillType.SpecialArrow:
-                    arrowShooter.ShootSpecialArrow(skill.definition);
+                    if (arrowShooter != null)
+                        arrowShooter.ShootSpecialArrow(skill.definition);
                     break;
                 case SkillType.Shield:
                     Debug.Log("Player used Shield skill.");
@@ -121,15 +131,17 @@ namespace ArcherOfGod.Core
 
         public void Reset()
         {
-            // Restore health
-            health.Heal(health.MaxHealth);
+            if (health != null)
+                health.Heal(health.MaxHealth);
 
-            // Re-enable everything
             enabled = true;
-            rb.simulated = true;
+            if (rb != null) rb.simulated = true;
             if (arrowShooter != null) arrowShooter.enabled = true;
             if (animatorController != null) animatorController.enabled = true;
             if (col != null) col.enabled = true;
+
+            foreach (var skill in equippedSkills)
+                skill?.Reset();
         }
     }
 }

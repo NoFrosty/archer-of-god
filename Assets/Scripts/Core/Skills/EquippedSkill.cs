@@ -18,7 +18,13 @@ namespace ArcherOfGod.Core
 
         public void Trigger()
         {
-            cooldownTimer = definition.cooldown;
+            if (definition != null)
+                cooldownTimer = definition.cooldown;
+        }
+
+        public void Reset()
+        {
+            cooldownTimer = 0f;
         }
     }
 }

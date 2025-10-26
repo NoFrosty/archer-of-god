@@ -31,11 +31,20 @@ namespace ArcherOfGod.Core
 
         private void Start()
         {
-            if (playerController != null && playerController.Health != null)
+            if (playerController?.Health != null)
                 playerController.Health.Died += HandlePlayerDeath;
 
-            if (enemyController != null && enemyController.Health != null)
+            if (enemyController?.Health != null)
                 enemyController.Health.Died += HandleEnemyDeath;
+        }
+
+        private void OnDestroy()
+        {
+            if (playerController?.Health != null)
+                playerController.Health.Died -= HandlePlayerDeath;
+
+            if (enemyController?.Health != null)
+                enemyController.Health.Died -= HandleEnemyDeath;
         }
 
         private void HandlePlayerDeath()
@@ -53,8 +62,12 @@ namespace ArcherOfGod.Core
         public void RestartGame()
         {
             OnRestart?.Invoke();
-            playerController.Reset();
-            enemyController.Reset();
+            
+            if (playerController != null)
+                playerController.Reset();
+            
+            if (enemyController != null)
+                enemyController.Reset();
         }
     }
 }

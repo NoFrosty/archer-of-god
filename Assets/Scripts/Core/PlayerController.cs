@@ -19,10 +19,14 @@ namespace ArcherOfGod.Core
 
         private void FixedUpdate()
         {
+            if (!IsAlive() || inputHandler == null || rb == null)
+                return;
+
             float move = inputHandler.MoveInput;
             rb.linearVelocity = new Vector2(move * moveSpeed, rb.linearVelocity.y);
 
-            animatorController.SetMoving(move);
+            if (animatorController != null)
+                animatorController.SetMoving(move);
         }
     }
 }

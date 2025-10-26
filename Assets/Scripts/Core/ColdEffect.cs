@@ -45,21 +45,29 @@ namespace ArcherOfGod.Core
 
         public void UpdateEffect(float deltaTime)
         {
-            if (IsFinished || target == null) return;
+            if (IsFinished || target == null)
+                return;
 
             timer += deltaTime;
 
             if (timer >= duration)
             {
-                IsFinished = true;
-                if (speedReduced && characterController != null)
-                {
-                    characterController.MoveSpeed = originalMoveSpeed;
-                }
-                if (effectInstance != null)
-                {
-                    Object.Destroy(effectInstance);
-                }
+                Finish();
+            }
+        }
+
+        private void Finish()
+        {
+            IsFinished = true;
+            
+            if (speedReduced && characterController != null)
+            {
+                characterController.MoveSpeed = originalMoveSpeed;
+            }
+            
+            if (effectInstance != null)
+            {
+                Object.Destroy(effectInstance);
             }
         }
     }

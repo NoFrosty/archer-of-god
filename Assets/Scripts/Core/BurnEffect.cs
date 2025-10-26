@@ -38,24 +38,31 @@ namespace ArcherOfGod.Core
 
         public void UpdateEffect(float deltaTime)
         {
-            if (IsFinished || target == null) return;
+            if (IsFinished || target == null)
+                return;
 
             timer += deltaTime;
             tickTimer += deltaTime;
 
             if (tickTimer >= 1f)
             {
-                target.TakeDamage(Mathf.RoundToInt(damagePerSecond));
+                if (target.IsAlive)
+                    target.TakeDamage(Mathf.RoundToInt(damagePerSecond));
                 tickTimer = 0f;
             }
 
             if (timer >= duration)
             {
-                IsFinished = true;
-                if (effectInstance != null)
-                {
-                    Object.Destroy(effectInstance);
-                }
+                Finish();
+            }
+        }
+
+        private void Finish()
+        {
+            IsFinished = true;
+            if (effectInstance != null)
+            {
+                Object.Destroy(effectInstance);
             }
         }
     }

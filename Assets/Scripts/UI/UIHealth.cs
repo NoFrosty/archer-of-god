@@ -21,25 +21,38 @@ namespace ArcherOfGod.UI
             if (health == null)
             {
                 Debug.LogError("Health reference is not set in UIHealth component.", this);
+                return;
             }
 
             if (healthText == null)
             {
-                Debug.LogError("No TextMeshProUGUI component found in children of UIHealth.", this);
+                Debug.LogWarning("No TextMeshProUGUI component found in children of UIHealth.", this);
             }
 
+            health.HealthChanged += UpdateHealthUI;
+            UpdateHealthUI(health.CurrentHealth, health.MaxHealth);
+        }
+
+        private void OnDestroy()
+        {
             if (health != null)
             {
-                health.HealthChanged += UpdateHealthUI;
-                UpdateHealthUI(health.CurrentHealth, health.MaxHealth);
+                health.HealthChanged -= UpdateHealthUI;
             }
         }
 
         private void UpdateHealthUI(int current, int max)
         {
-            healthSlider.maxValue = max;
-            healthSlider.value = current;
-            healthText.text = current.ToString();
+            if (healthSlider != null)
+            {
+                healthSlider.maxValue = max;
+                healthSlider.value = current;
+            }
+
+            if (healthText != null)
+            {
+                healthText.text = current.ToString();
+            }
         }
     }
 }

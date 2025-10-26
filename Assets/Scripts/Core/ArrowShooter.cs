@@ -34,30 +34,18 @@ namespace ArcherOfGod.Core
 
         public void Shoot(ArrowEffectType effectType)
         {
-            if (arrowPrefab == null || shootPoint == null || characterController == null) return;
+            if (arrowPrefab == null || shootPoint == null || characterController == null)
+                return;
 
-            if (cachedTarget == null || !cachedTarget.IsAlive())
-            {
-                Faction targetFaction = characterController.Faction == Faction.Player ? Faction.Enemy : Faction.Player;
-                var targets = FindObjectsByType<CharacterController>(FindObjectsSortMode.None)
-                    .Where(c => c.Faction == targetFaction && c.IsAlive())
-                    .ToArray();
-
-                if (targets.Length == 0) return;
-
-                cachedTarget = targets
-                    .OrderBy(t => Vector2.Distance(shootPoint.position, t.transform.position))
-                    .First();
-            }
+            var target = GetTarget();
+            if (target == null)
+                return;
 
             GameObject arrowObj = Instantiate(arrowPrefab, shootPoint.position, Quaternion.identity);
             var arrow = arrowObj.GetComponent<Arrow>();
             if (arrow != null)
             {
-
-                arrow.Init(cachedTarget.transform.position,
-                    characterController.Faction, null
-                    );
+                arrow.Init(target.transform.position, characterController.Faction, null);
             }
 
             characterController.Attack();
@@ -65,33 +53,41 @@ namespace ArcherOfGod.Core
 
         public void ShootSpecialArrow(SkillDefinition skillDefinition)
         {
-            if (shootPoint == null || characterController == null) return;
+            if (shootPoint == null || characterController == null || skillDefinition?.arrowPrefab == null)
+                return;
 
-            if (cachedTarget == null || !cachedTarget.IsAlive())
-            {
-                Faction targetFaction = characterController.Faction == Faction.Player ? Faction.Enemy : Faction.Player;
-                var targets = FindObjectsByType<CharacterController>(FindObjectsSortMode.None)
-                    .Where(c => c.Faction == targetFaction && c.IsAlive())
-                    .ToArray();
-
-                if (targets.Length == 0) return;
-
-                cachedTarget = targets
-                    .OrderBy(t => Vector2.Distance(shootPoint.position, t.transform.position))
-                    .First();
-            }
+            var target = GetTarget();
+            if (target == null)
+                return;
 
             GameObject arrowObj = Instantiate(skillDefinition.arrowPrefab, shootPoint.position, Quaternion.identity);
             var arrow = arrowObj.GetComponent<Arrow>();
             if (arrow != null)
             {
-
-                arrow.Init(cachedTarget.transform.position,
-                    characterController.Faction,
-                    skillDefinition);
+                arrow.Init(target.transform.position, characterController.Faction, skillDefinition);
             }
 
             characterController.Attack();
+        }
+
+        private CharacterController GetTarget()
+        {
+            if (cachedTarget != null && cachedTarget.IsAlive())
+                return cachedTarget;
+
+            Faction targetFaction = characterController.Faction == Faction.Player ? Faction.Enemy : Faction.Player;
+            var targets = FindObjectsByType<CharacterController>(FindObjectsSortMode.None)
+                .Where(c => c.Faction == targetFaction && c.IsAlive())
+                .ToArray();
+
+            if (targets.Length == 0)
+                return null;
+
+            cachedTarget = targets
+                .OrderBy(t => Vector2.Distance(shootPoint.position, t.transform.position))
+                .First();
+
+            return cachedTarget;
         }
     }
 }

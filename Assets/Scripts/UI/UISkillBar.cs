@@ -17,6 +17,18 @@ namespace ArcherOfGod.UI
             if (characterController == null)
                 characterController = FindAnyObjectByType<PlayerController>();
 
+            if (characterController == null)
+            {
+                Debug.LogError("PlayerController not found for UISkillBar!", this);
+                return;
+            }
+
+            if (skillButtonPrefab == null || skillButtonParent == null)
+            {
+                Debug.LogError("Skill button prefab or parent not set in UISkillBar!", this);
+                return;
+            }
+
             int skillCount = characterController.EquippedSkills.Length;
             skillButtons = new UISkillButton[skillCount];
 
@@ -25,8 +37,12 @@ namespace ArcherOfGod.UI
                 var skill = characterController.EquippedSkills[i];
                 var btnObj = Instantiate(skillButtonPrefab, skillButtonParent);
                 var uiSkillBtn = btnObj.GetComponent<UISkillButton>();
-                skillButtons[i] = uiSkillBtn;
-                uiSkillBtn.Init(skill, i, OnSkillButtonClicked);
+                
+                if (uiSkillBtn != null)
+                {
+                    skillButtons[i] = uiSkillBtn;
+                    uiSkillBtn.Init(skill, i, OnSkillButtonClicked);
+                }
             }
         }
 
@@ -40,7 +56,8 @@ namespace ArcherOfGod.UI
 
         private void OnSkillButtonClicked(int index)
         {
-            characterController.UseSkill(index);
+            if (characterController != null)
+                characterController.UseSkill(index);
         }
     }
 }

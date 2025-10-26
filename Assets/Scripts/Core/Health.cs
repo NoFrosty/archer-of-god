@@ -11,6 +11,7 @@ namespace ArcherOfGod.Core
 
         public int MaxHealth => maxHP;
         public int CurrentHealth => currentHP;
+        public bool IsAlive => currentHP > 0;
 
         public Transform FxSpawnPoint => fxSpawnPoint;
 
@@ -39,15 +40,14 @@ namespace ArcherOfGod.Core
 
         public void TakeDamage(int dmg)
         {
-            if (dmg <= 0 || currentHP <= 0) return;
+            if (dmg <= 0 || !IsAlive) return;
 
-            currentHP -= dmg;
-            currentHP = Mathf.Max(0, currentHP);
+            currentHP = Mathf.Max(0, currentHP - dmg);
             Debug.Log($"{gameObject.name} took {dmg} dmg. HP={currentHP}/{maxHP}");
 
             HealthChanged?.Invoke(currentHP, maxHP);
 
-            if (currentHP <= 0) Die();
+            if (!IsAlive) Die();
         }
 
         public void Heal(int amount)
@@ -62,7 +62,6 @@ namespace ArcherOfGod.Core
         {
             Debug.Log($"{gameObject.name} died.");
             Died?.Invoke();
-            //gameObject.SetActive(false);
         }
 
         public void AddEffect(IStatusEffect effect)
