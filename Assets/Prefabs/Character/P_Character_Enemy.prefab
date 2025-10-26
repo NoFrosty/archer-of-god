@@ -933,9 +933,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: ArcherOfGod.Character::ArcherOfGod.Character.EnemyController
   equippedSkills:
+  - definition: {fileID: 11400000, guid: d9d8d2e8ede55b74fa0500b3eb7281c4, type: 2}
+    cooldownTimer: 0
   - definition: {fileID: 11400000, guid: 23b92962e94349241b24dd63825728ef, type: 2}
     cooldownTimer: 0
   - definition: {fileID: 11400000, guid: bc74a997cd7d5f34cb2cd37ba858e75d, type: 2}
+    cooldownTimer: 0
+  - definition: {fileID: 11400000, guid: d1d90d5893c72744e9ab578fc195a004, type: 2}
     cooldownTimer: 0
   - definition: {fileID: 11400000, guid: 61550c4d75ee8e34e9e2121096c60d26, type: 2}
     cooldownTimer: 0
@@ -984,8 +988,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: ArcherOfGod.Character::ArcherOfGod.Character.ArrowShooter
   shootPoint: {fileID: 1432773080055766650}
   shootInterval: 1.5
-  arrowSpeed: 10
-  arcHeight: 1.5
 --- !u!114 &4110599853640048515
 MonoBehaviour:
   m_ObjectHideFlags: 0
