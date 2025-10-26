@@ -49,6 +49,7 @@ namespace ArcherOfGod.Core
             if (obj == null) return;
 
             obj.SetActive(false);
+            obj.transform.SetParent(null);
             pool.Enqueue(obj);
         }
     }

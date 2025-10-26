@@ -809,6 +809,7 @@ GameObject:
   - component: {fileID: 4110599853640048515}
   - component: {fileID: 1601197469683710708}
   - component: {fileID: 3853985019065691799}
+  - component: {fileID: 8634811419335254280}
   m_Layer: 0
   m_Name: P_Character_Enemy
   m_TagString: Enemy
@@ -932,15 +933,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: ArcherOfGod.Character::ArcherOfGod.Character.EnemyController
   equippedSkills:
-  - definition: {fileID: 0}
+  - definition: {fileID: 11400000, guid: 23b92962e94349241b24dd63825728ef, type: 2}
     cooldownTimer: 0
-  - definition: {fileID: 0}
+  - definition: {fileID: 11400000, guid: bc74a997cd7d5f34cb2cd37ba858e75d, type: 2}
     cooldownTimer: 0
-  - definition: {fileID: 0}
+  - definition: {fileID: 11400000, guid: 61550c4d75ee8e34e9e2121096c60d26, type: 2}
     cooldownTimer: 0
-  - definition: {fileID: 0}
+  - definition: {fileID: 11400000, guid: f70bda3de8e85564ca11cc8f8f7c07f0, type: 2}
     cooldownTimer: 0
-  - definition: {fileID: 0}
+  - definition: {fileID: 11400000, guid: a4010401d6ef1fd4c9d67e85dd7f071d, type: 2}
     cooldownTimer: 0
 --- !u!114 &7340722466816676135
 MonoBehaviour:
@@ -1026,3 +1027,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: ArcherOfGod.Core::ArcherOfGod.Core.ObjectPool
   prefab: {fileID: 1484917887840546575, guid: 261fbba459cd9394f97499ac49c7e11d, type: 3}
   initialSize: 10
+--- !u!114 &8634811419335254280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8585921501694224227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ArcherOfGod.Core::ArcherOfGod.Core.AI.EnemyAIController
+  aiConfig: {fileID: 11400000, guid: 4b9b06c01c72275439aa5f92f9d5a0d5, type: 2}

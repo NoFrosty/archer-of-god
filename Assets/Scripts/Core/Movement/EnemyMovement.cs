@@ -47,6 +47,11 @@ namespace ArcherOfGod.Core.Movement
             return moveSpeed;
         }
 
+        public bool IsMoving()
+        {
+            return Mathf.Abs(rb.linearVelocity.x) > 0.1f;
+        }
+
         private void FixedUpdate()
         {
             Move(Time.fixedDeltaTime);

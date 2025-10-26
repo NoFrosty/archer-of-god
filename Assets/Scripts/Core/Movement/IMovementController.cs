@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace ArcherOfGod.Core.Movement
 {
     public interface IMovementController
@@ -7,5 +5,6 @@ namespace ArcherOfGod.Core.Movement
         void Move(float deltaTime);
         void SetMoveSpeed(float speed);
         float GetMoveSpeed();
+        bool IsMoving();
     }
 }

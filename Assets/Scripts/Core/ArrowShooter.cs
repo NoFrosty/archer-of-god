@@ -29,8 +29,11 @@ namespace ArcherOfGod.Core
             shootTimer += Time.deltaTime;
             if (shootTimer >= shootInterval)
             {
-                Shoot(ArrowEffectType.None);
-                shootTimer = 0f;
+                if (characterController != null && characterController.IsIdle)
+                {
+                    Shoot(ArrowEffectType.None);
+                    shootTimer = 0f;
+                }
             }
         }
 
@@ -50,7 +53,7 @@ namespace ArcherOfGod.Core
             var arrow = arrowObj.GetComponent<Arrow>();
             if (arrow != null)
             {
-                arrow.Init(target.transform.position, characterController.Faction, null, arrowPool);
+                arrow.Init(target.GetCenterPosition(), characterController.Faction, null, arrowPool);
             }
 
             characterController.Attack();
@@ -69,7 +72,7 @@ namespace ArcherOfGod.Core
             var arrow = arrowObj.GetComponent<Arrow>();
             if (arrow != null)
             {
-                arrow.Init(target.transform.position, characterController.Faction, skillDefinition, null);
+                arrow.Init(target.GetCenterPosition(), characterController.Faction, skillDefinition, null);
             }
 
             characterController.Attack();
@@ -95,7 +98,7 @@ namespace ArcherOfGod.Core
                 var arrow = arrowObj.GetComponent<Arrow>();
                 if (arrow != null)
                 {
-                    arrow.Init(target.transform.position, characterController.Faction, skillDefinition, null);
+                    arrow.Init(target.GetCenterPosition(), characterController.Faction, skillDefinition, null);
                 }
 
                 characterController.Attack();

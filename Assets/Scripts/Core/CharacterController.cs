@@ -1,3 +1,4 @@
+using ArcherOfGod.Core.Movement;
 using ArcherOfGod.Core.Skills.Commands;
 using ArcherOfGod.Shared;
 using UnityEngine;
@@ -24,6 +25,15 @@ namespace ArcherOfGod.Core
         public Faction Faction => characterFaction.Faction;
         public EquippedSkill[] EquippedSkills => equippedSkills;
         public Health Health => health;
+
+        public bool IsIdle
+        {
+            get
+            {
+                var movementController = GetComponent<IMovementController>();
+                return movementController == null || !movementController.IsMoving();
+            }
+        }
 
         protected virtual void Awake()
         {
@@ -87,6 +97,13 @@ namespace ArcherOfGod.Core
         {
             if (animatorController != null)
                 animatorController.PlayAttack();
+        }
+
+        public Vector3 GetCenterPosition()
+        {
+            if (col != null)
+                return col.bounds.center;
+            return transform.position;
         }
 
         private void OnDestroy()
