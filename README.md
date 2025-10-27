@@ -4,6 +4,26 @@
 
 Archer Of God is a Unity-based action game where players control an archer character with various skills, status effects, and combat mechanics. The game features a modular architecture with separate assemblies for different gameplay systems.
 
+## Requirements
+
+- Unity 6000.2.9 or later
+- Universal Render Pipeline
+
+## Getting Started
+
+1. Clone the repository
+2. Open the project in Unity
+3. Ensure all required packages are installed via Package Manager
+4. Open the `Game` scene from `Assets/Scenes`
+5. Press Play to start
+
+## Videos
+Video after Day 1 of Development: 
+- https://youtu.be/nWHzvxsguC4
+
+Video after Day 2 of Development (Final Version):
+- https://youtu.be/dpY4HoswlS0
+
 ## Features
 
 ### Combat System
@@ -37,19 +57,6 @@ The project incorporates several Unity Asset Store packages:
 - [Pixel Art Platformer - Village Props](https://assetstore.unity.com/packages/2d/environments/pixel-art-platformer-village-props-166114)
 - [Pixel Art RPG VFX Lite](https://assetstore.unity.com/packages/vfx/particles/pixel-art-rpg-vfx-lite-311145)
 - [Pixel Cursors](https://assetstore.unity.com/packages/2d/gui/icons/pixel-cursors-109256)
-
-## Requirements
-
-- Unity 6000.2.9 or later
-- Universal Render Pipeline
-
-## Getting Started
-
-1. Clone the repository
-2. Open the project in Unity
-3. Ensure all required packages are installed via Package Manager
-4. Open the `Game` scene from `Assets/Scenes`
-5. Press Play to start
 
 ## License
 
